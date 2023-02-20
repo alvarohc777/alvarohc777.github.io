@@ -272,7 +272,7 @@ function tripCreator(data, element_id) {
         yaxis: {
             range: [minWindowValueY - 0.03, maxWindowValueY + 0.03],
             tickvals: [0, 1, 2],
-            ticktext: ['0', 'Fault', 'Caps'],
+            ticktext: ['No-trip -', 'Fault -', 'Caps -'],
             ticklabelstep: 1,
         },
         showlegend: false
