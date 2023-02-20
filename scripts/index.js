@@ -19,7 +19,8 @@ const csvForm = document.getElementById("csvForm");
 const csvInput = document.getElementById("csvInput");
 const signalMenu = document.getElementById('signalMenu');
 const plotsMenu = document.getElementById('plotsMenu');
-const plotsSection = document.getElementById('plots')
+const plotsSection = document.getElementById('plots');
+const plotsCheckboxList = document.querySelectorAll('.plotCheckbox');
 const plotDict = {};
 // eventListeners
 
@@ -28,6 +29,11 @@ const plotDict = {};
 function selectCSV() {
     csvInput.click();
 }
+
+function clearCheckbox() {
+    plotsCheckboxList.forEach(checkbox => { checkbox.checked = false });
+}
+clearCheckbox()
 
 csvInput.addEventListener('input', function () {
     console.log('Se cargó el archivo' + this.files[0].name);
@@ -117,6 +123,10 @@ function plotAddRemove(value) {
         removeSignal(value);
     }
 }
+
+
+
+
 
 
 
