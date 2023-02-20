@@ -3,6 +3,9 @@ Graphical User Interface for visualization of fault detection strategy based on 
 
 
 #### To Do
+- [ ] Set Window Size as input.
+- [ ] Set Window Step as input.
+- [ ] Set Threshold as input.
 - [ ] Include example CSV (fault, HIF, caps, etc).
 - [ ] Include reset button.
 - [ ] Include Icons (Integra, Gisel, Uninorte).
