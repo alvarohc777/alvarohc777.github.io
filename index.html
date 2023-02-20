@@ -21,7 +21,7 @@
     <section id="navbar">
         <button id="openbtn" onclick="toogleNav()">x</button>
         <div class="navLinks">
-            <a href="">
+            <!-- <a href="">
                 <h4>Inicio</h4>
             </a>
             <a href="">
@@ -32,7 +32,8 @@
             </a>
             <a href="https://www.uninorte.edu.co/" target="_blank">
                 <h4>Uninorte</h4>
-            </a>
+            </a> -->
+            <h1>Detector de Fallas</h1>
         </div>
     </section>
     <!--xxx navigation bar xxx-->
@@ -43,32 +44,39 @@
         <!-- Sidebar Menu -->
         <div id="sidebar" class="sidebar" data-state="open">
             <!-- CSV File Upload -->
+            <br>
             <div class="menuSection">
-                <h1>CSV Loader</h1>
+                <h3>CSV Loader</h3>
                 <form action="" id="csvForm">
                     <input type="file" accept=".csv" name="csvInput" id="csvInput" required style="display:none">
-                    <button for="csvInput" type="button" onclick="selectCSV()">Escoger un CSV</button>
-                    <button type="submit">Load CSV</button>
+                    <button for="csvInput" type="button" onclick="selectCSV()">
+                        <p>Select CSV</p>
+                    </button>
+                    <button type="submit">
+                        <p> Load CSV</p>
+                    </button>
                 </form>
             </div>
+            <br>
             <!--xxx CSV File Upload xxx-->
 
             <!-- Signal Selector -->
             <div class="menuSection" id="signalList">
-                <h1>Signal Selector</h1>
+                <h3>Signal Selector</h3>
                 <div>
                     <form action="" id="signalMenu">
                         <p>Select a CSV</p>
                     </form>
                 </div>
             </div>
+            <br>
             <!--xxx Signal Selector xxx-->
 
             <!-- Plots List -->
             <div class="menuSection" id="plotsList">
-                <h1>Plots</h1>
+                <h3>Plots</h3>
                 <form action="" id="plotsMenu">
-                    <h3>Images</h3>
+                    <h4>Images</h4>
                     <input type="checkbox" id="imgSignal-checkbox" class="plotCheckbox" value="imgSignal"
                         data-name="Signal">
                     <label for="imgSignal-checkbox">Signal</label><br>
@@ -81,7 +89,7 @@
                     <input type="checkbox" id="imgSITrip-checkbox" class="plotCheckbox" value="imgSITrip"
                         data-name="Superimposed trip signal">
                     <label for="imgSITrip-checkbox">Superimposed trip signal</label><br>
-                    <h3>Animations</h3>
+                    <h4>Animations</h4>
                     <input type="checkbox" id="animSignal-checkbox" class="plotCheckbox" value="animSignal"
                         data-name="Signal">
                     <label for="animSignal-checkbox">Signal </label><br>
@@ -135,13 +143,14 @@
 
     <!-- Footer -->
     <section id="footer">
-        <a href="">
+        <a href="https://www.utp.edu.co/" target="_blank">
             <h4>UTP</h4>
         </a>
         <a href="">
             <h4>Integra</h4>
         </a>
-        <a href="">
+        <a href="https://www.uninorte.edu.co/web/gisel#:~:text=El%20grupo%20de%20sistemas%20el%C3%A9ctricos,mediante%20la%20globalizaci%C3%B3n%20del%20conocimiento."
+            target="_blank">
             <h4>GISEL</h4>
         </a>
         <a href="https://www.uninorte.edu.co/" target="_blank">
