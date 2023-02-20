@@ -65,11 +65,12 @@ minusSample.addEventListener('mousedown', function () {
     clearInterval(playIntervalID);
     playState = false;
 
-    slider.dispatchEvent(new Event('input', {}), slider.value--);
+
     if (slider.value == 0) {
         slider.dispatchEvent(new Event('input', {}), slider.value = slider.max);
         return
     }
+    slider.dispatchEvent(new Event('input', {}), slider.value--);
     intervalId = setInterval(() => {
         // slider.value--;
         slider.dispatchEvent(new Event('input', {}), slider.value--);
