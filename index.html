@@ -48,6 +48,27 @@
             <div class="menuSection">
                 <h3>CSV Loader</h3>
                 <form action="" id="csvForm">
+                    <div style="display:none">
+                        <label for="csvDropdown">Example Events</label>
+                        <select name="csvDropdown" id="csvDropdown">
+                            <option selected="selected" value="wka akkwk">
+                                ...
+                            </option>
+                            <option value="waaka kkwk">
+                                Monophasic Fault
+                            </option>
+                            <option value="waaka ak">
+                                High Impedance Fault
+                            </option>
+                            <option value="waaka akkwk">
+                                Capacitor Bank Energization
+                            </option>
+                        </select>
+                        <br>
+                        <br>
+                    </div>
+                    <label for="">Upload Event</label>
+                    <br>
                     <input type="file" accept=".csv" name="csvInput" id="csvInput" required style="display:none">
                     <button for="csvInput" type="button" onclick="selectCSV()">
                         <p>Select CSV</p>
@@ -55,6 +76,9 @@
                     <button type="submit">
                         <p> Load CSV</p>
                     </button>
+                    <br>
+                    <br>
+                    <p id="csvNameHolder">No File</p>
                 </form>
             </div>
             <br>
@@ -115,6 +139,13 @@
                 <button id="play">&#9205;&#9208;</button>
                 <button id="stop">&#9209;</button>
                 <button id="plusSample">&#10095;</button>
+            </div>
+            <br>
+            <div class="menuSection">
+                <div>
+                    <button id="resetAll" onclick="clearAll()">Clear All</button>
+                    <button id="resetPlots" onclick="clearCheckbox()">Clear Plots</button>
+                </div>
             </div>
             <!--   &#9199;Play/Pause button -->
             <!-- xxx slider xxx -->

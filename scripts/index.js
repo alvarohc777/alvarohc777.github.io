@@ -9,18 +9,20 @@
 const csvEndpoint = "https://aherrada.pythonanywhere.com/uploadCSV";
 const signalNameEndpoint = "https://aherrada.pythonanywhere.com/signalName";
 const plotsEndpoint = "https://aherrada.pythonanywhere.com/plots/";
+const exampleFolder = "../sample_csv";
 
 // Variables
 
 
 // Constants
-const reader = new FileReader();
+let reader = new FileReader();
 const csvForm = document.getElementById("csvForm");
 const csvInput = document.getElementById("csvInput");
 const signalMenu = document.getElementById('signalMenu');
 const plotsMenu = document.getElementById('plotsMenu');
 const plotsSection = document.getElementById('plots');
 const plotsCheckboxList = document.querySelectorAll('.plotCheckbox');
+const defaultDropdownOption = document.getElementById('csvDropdown').firstElementChild;
 const plotDict = {};
 // eventListeners
 
@@ -32,11 +34,27 @@ function selectCSV() {
 
 function clearCheckbox() {
     plotsCheckboxList.forEach(checkbox => { checkbox.checked = false });
+    let divs = plotsSection.querySelectorAll('.plotDiv');
+    divs.forEach(div => { div.remove() });
 }
-clearCheckbox()
+
+function clearAll() {
+    clearCheckbox()
+    csvForm.reset()
+    document.getElementById('csvNameHolder').innerText = 'No File';
+    defaultDropdownOption.selected = true;
+    reader = new FileReader();
+    signalMenu.innerHTML = '<p>Select a CSV</p>';
+}
+// Clear all information inside 
+clearAll()
 
 csvInput.addEventListener('input', function () {
+    defaultDropdownOption.selected = true;
+
+    document.getElementById('csvNameHolder').innerText = this.files[0].name;
     console.log('Se cargó el archivo' + this.files[0].name);
+
     let file = this.files[0];
     reader.onload = (e) => console.log(e.target.result);
     reader.onerror = (error) => console.log(error);
