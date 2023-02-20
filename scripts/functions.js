@@ -111,8 +111,6 @@ function fetchSignalData(element_id) {
                 initAnim(data[0].length)
             } else if (data[3] == 'STFT') {
                 stftCreator(data, element_id)
-                console.log('longitud')
-                console.log(data[0].length)
                 initAnim(data[0].length)
             }
         })
@@ -135,13 +133,33 @@ const plotOptions = {
 const plotLayout = {
     autosize: true,
     margin: {
-        l: 50,
-        r: 50,
+        l: 60,
+        r: 40,
         b: 50,
-        t: 50,
+        t: 40,
     },
     modebar: {
         orientation: 'v',
+    },
+    xaxis: {
+        title: {
+            text: 'Tiempo',
+            font: {
+                family: 'Courier New, monospace',
+                size: 18,
+                color: '#7f7f7f'
+            }
+        },
+    },
+    yaxis: {
+        title: {
+            text: 'Amplitud',
+            font: {
+                family: 'Courier New, monospace',
+                size: 18,
+                color: '#7f7f7f'
+            }
+        }
     }
 };
 // ---------------------------- //
@@ -240,10 +258,22 @@ function tripCreator(data, element_id) {
     let minWindowValueY = Math.min(...data[1]);
     const staticLayout = {
         xaxis: {
-            range: [data[0][0], (data[0][parseInt(data[0].length) - 1])]
+            range: [data[0][0], (data[0][parseInt(data[0].length) - 1])],
+            title: {
+                text: 'Tiempo',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                    color: '#7f7f7f'
+                }
+            },
         },
+
         yaxis: {
-            range: [minWindowValueY - 0.03, maxWindowValueY + 0.03]
+            range: [minWindowValueY - 0.03, maxWindowValueY + 0.03],
+            tickvals: [0, 1, 2],
+            ticktext: ['0', 'Fault', 'Caps'],
+            ticklabelstep: 1,
         },
         showlegend: false
     }
@@ -279,12 +309,7 @@ function tripCreator(data, element_id) {
     }
     function relayout(maxWindowValueX, valueY) {
         let update = {
-            yaxis: {
 
-                tickvals: [0, 1, 2],
-                ticktext: ['0', 'Fault', 'Caps'],
-                ticklabelstep: 1,
-            },
             shapes: [
                 // Begining of Window
                 {
@@ -338,7 +363,15 @@ function animationCreator(data, element_id) {
 
     const animLayout = {
         yaxis: {
-            range: [data[2][1], data[2][0]]
+            range: [data[2][1], data[2][0]],
+            title: {
+                text: 'Amplitud',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                    color: '#7f7f7f'
+                }
+            }
         },
     };
     let layout = JSON.parse(JSON.stringify(plotLayout));
@@ -376,13 +409,29 @@ function stftCreator(data, element_id) {
 
     const stftLayout = {
         yaxis: {
-            range: [data[2][1], data[2][0]]
+            range: [data[2][1], data[2][0]],
+            title: {
+                text: 'Amplitud',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                    color: '#7f7f7f'
+                }
+            }
         },
         xaxis: {
             tickangle: -45,
             tickvals: data[0][window_index].slice(0, 11),
             // ticktext: ['0', '60', '', '180', '', '300', '', '420', '', '540', ''],
             ticklabelstep: 2,
+            title: {
+                text: 'Tiempo',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                    color: '#7f7f7f'
+                }
+            },
         },
     };
 
