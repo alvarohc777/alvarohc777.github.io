@@ -88,8 +88,7 @@ function createDiv(value) {
 };
 
 function fetchSignalData(element_id) {
-    // console.log(`${plotsEndpoint}${element_id}`)
-    fetch(`${plotsEndpoint}${element_id}`, {
+    fetch(`${plotsEndpoint}/${element_id}`, {
         method: 'get',
         headers: {
             'Accept': 'application/json',

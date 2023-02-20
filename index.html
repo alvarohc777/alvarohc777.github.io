@@ -14,6 +14,7 @@
     <script defer src="./scripts/responsive.js"></script>
     <script defer src="./scripts/functions.js"></script>
     <script defer src="./scripts/playPause.js"></script>
+    <script defer src="./scripts/fetchSampleCSV.js"></script>
 </head>
 
 <body>
@@ -48,20 +49,11 @@
             <div class="menuSection">
                 <h3>CSV Loader</h3>
                 <form action="" id="csvForm">
-                    <div style="display:none">
+                    <div>
                         <label for="csvDropdown">Example Events</label>
                         <select name="csvDropdown" id="csvDropdown">
-                            <option selected="selected" value="wka akkwk">
-                                ...
-                            </option>
-                            <option value="waaka kkwk">
-                                Monophasic Fault
-                            </option>
-                            <option value="waaka ak">
-                                High Impedance Fault
-                            </option>
-                            <option value="waaka akkwk">
-                                Capacitor Bank Energization
+                            <option selected="selected" value="csvFile">
+
                             </option>
                         </select>
                         <br>
