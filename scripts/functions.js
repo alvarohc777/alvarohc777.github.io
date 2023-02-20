@@ -3,6 +3,11 @@ let sliderMin = slider.min;
 let sliderMax = slider.max;
 let animationsExist = false;
 
+
+// modificar esto al step solicitado por el usuario
+let windowStep = 4;
+let windowSize = 64;
+
 function signalListAppend(list) {
     signalMenu.textContent = '';
 
@@ -96,21 +101,26 @@ function fetchSignalData(element_id) {
         .then((data) => {
             if (data[3] === 'img') {
                 imageCreator(data, element_id)
+                let numberWindows = Math.floor((data[0].length - windowSize) / windowStep) + 1
+                initAnim(numberWindows)
             } else if (data[3] === 'trip') {
                 tripCreator(data, element_id)
+                initAnim(data[0].slice(0, -1).length)
             } else if (data[3] === 'anim') {
                 animationCreator(data, element_id)
-                initAnim(data)
+                initAnim(data[0].length)
             } else if (data[3] == 'STFT') {
                 stftCreator(data, element_id)
-                initAnim(data)
+                console.log('longitud')
+                console.log(data[0].length)
+                initAnim(data[0].length)
             }
         })
         .catch(err => console.log(err))
 };
 
-function initAnim(data) {
-    slider.max = data[0].length - 1
+function initAnim(dataLength) {
+    slider.max = dataLength - 1
     animationsExist = true;
     slider.dispatchEvent(new Event('input', {}), slider.value = slider.value);
 }
