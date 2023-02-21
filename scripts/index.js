@@ -1,18 +1,18 @@
 // API endpoints
 
 // For local development
-const csvEndpoint = "http://127.0.0.1:8080/uploadCSV";
-const signalNameEndpoint = "http://127.0.0.1:8080/signalName";
-// const plotsEndpoint = "http://127.0.0.1:8080/plotsList";
-const plotsEndpoint = "http://127.0.0.1:8080/plots";
-const sampleCSVEndpoint = "http://127.0.0.1:8080/csvSamples";
-const sampleCSVSelectEndpoint = "http://127.0.0.1:8080/csvSampleSelect";
+// const csvEndpoint = "http://127.0.0.1:8080/uploadCSV";
+// const signalNameEndpoint = "http://127.0.0.1:8080/signalName";
+// // const plotsEndpoint = "http://127.0.0.1:8080/plotsList";
+// const plotsEndpoint = "http://127.0.0.1:8080/plots";
+// const sampleCSVEndpoint = "http://127.0.0.1:8080/csvSamples";
+// const sampleCSVSelectEndpoint = "http://127.0.0.1:8080/csvSampleSelect";
 
-// const csvEndpoint = "https://aherrada.pythonanywhere.com/uploadCSV";
-// const signalNameEndpoint = "https://aherrada.pythonanywhere.com/signalName";
-// const plotsEndpoint = "https://aherrada.pythonanywhere.com/plots";
-// const sampleCSVEndpoint = "https://aherrada.pythonanywhere.com/csvSamples";
-// const sampleCSVSelectEndpoint = "https://aherrada.pythonanywhere.com/csvSampleSelect";
+const csvEndpoint = "https://aherrada.pythonanywhere.com/uploadCSV";
+const signalNameEndpoint = "https://aherrada.pythonanywhere.com/signalName";
+const plotsEndpoint = "https://aherrada.pythonanywhere.com/plots";
+const sampleCSVEndpoint = "https://aherrada.pythonanywhere.com/csvSamples";
+const sampleCSVSelectEndpoint = "https://aherrada.pythonanywhere.com/csvSampleSelect";
 
 
 
