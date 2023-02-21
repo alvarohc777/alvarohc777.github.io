@@ -1,4 +1,5 @@
 let csvSampleDict = {};
+
 const csvDropdown = document.getElementById('csvDropdown');
 fetch(sampleCSVEndpoint, {
     method: 'get',
@@ -20,13 +21,30 @@ fetch(sampleCSVEndpoint, {
 function csvListCreator(value) {
     let optionTag = document.createElement('option');
     let pTag = document.createElement('p');
-    optionTag.value = value.CSV
+    optionTag.value = value.id
     pTag.innerText = value.title
     optionTag.appendChild(pTag)
     csvDropdown.insertAdjacentElement('beforeend', optionTag)
-    console.log(optionTag)
 }
 
-// setTimeout(() => {
-//     console.log(csvSampleDict)
-// }, 1000);  
+csvDropdown.addEventListener('input', function () {
+
+    csvInput.value = ''
+
+    fetch(`${sampleCSVSelectEndpoint}/${csvDropdown.value}`, {
+        method: 'get',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(res => res.json())
+        .then((data) => {
+            document.getElementById('csvNameHolder').innerText = data.file_name;
+            let signalList = data;
+            signalListAppend(signalList.signals_list);
+            clearPlotly();
+            // clearCheckbox();
+        })
+        .catch(err => console.log(err))
+})

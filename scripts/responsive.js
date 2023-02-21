@@ -1,6 +1,5 @@
 const sidebar = document.getElementById("sidebar")
 let sidebarState = sidebar.dataset.state
-console.log(sidebarState)
 function toogleNav() {
     if (sidebarState === "closed") {
         sidebar.style.width = "250px";
@@ -17,8 +16,6 @@ function toogleNav() {
         sidebarState = "closed"
     }
 }
-
-
 
 // sidebar.style.width = "250px";
 // document.getElementById("mainContent").style.marginLeft = "250px";

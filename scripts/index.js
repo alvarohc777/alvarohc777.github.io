@@ -6,10 +6,14 @@ const signalNameEndpoint = "http://127.0.0.1:8080/signalName";
 // const plotsEndpoint = "http://127.0.0.1:8080/plotsList";
 const plotsEndpoint = "http://127.0.0.1:8080/plots";
 const sampleCSVEndpoint = "http://127.0.0.1:8080/csvSamples";
+const sampleCSVSelectEndpoint = "http://127.0.0.1:8080/csvSampleSelect";
 
 // const csvEndpoint = "https://aherrada.pythonanywhere.com/uploadCSV";
 // const signalNameEndpoint = "https://aherrada.pythonanywhere.com/signalName";
 // const plotsEndpoint = "https://aherrada.pythonanywhere.com/plots";
+// const sampleCSVEndpoint = "https://aherrada.pythonanywhere.com/csvSamples";
+// const sampleCSVSelectEndpoint = "https://aherrada.pythonanywhere.com/csvSampleSelect";
+
 
 
 // Variables
@@ -50,20 +54,26 @@ function clearAll() {
 // Clear all information inside 
 clearAll()
 
-csvInput.addEventListener('input', function () {
-    defaultDropdownOption.selected = true;
+function clearDivs() {
+    let divs = document.querySelectorAll('.plotDiv')
+    divs.forEach(div => {
+        div.remove()
+    })
+}
+function clearPlotly() {
+    let divs = document.querySelectorAll('.plotly')
+    divs.forEach(div => {
+        div.remove()
+    })
+}
 
-    document.getElementById('csvNameHolder').innerText = this.files[0].name;
-    console.log('Se cargó el archivo' + this.files[0].name);
-
-    let file = this.files[0];
-    reader.onload = (e) => console.log(e.target.result);
-    reader.onerror = (error) => console.log(error);
-    reader.readAsText(file);
-});
-
-csvForm.addEventListener('submit', (e) => {
+csvInput.addEventListener('input', function (e) {
     e.preventDefault();
+
+    // Reset Dropdown menu
+    defaultDropdownOption.selected = true;
+    document.getElementById('csvNameHolder').innerText = this.files[0].name;
+
     const formData = new FormData;
     formData.append('csv_files', csvInput.files[0])
     fetch(csvEndpoint, {
@@ -72,12 +82,21 @@ csvForm.addEventListener('submit', (e) => {
     })
         .then(res => res.json())
         .then((data) => {
-            signalList = data;
-            console.log(signalList.signals_list);
-            signalListAppend(signalList.signals_list)
+            clearPlotly();
+            // clearCheckbox();
+            let signalList = data;
+            signalListAppend(signalList.signals_list);
         })
         .catch(err => console.log(err))
+
+    // // Visualize Loaded CSV
+    // console.log('Se cargó el archivo' + this.files[0].name);
+    // let file = this.files[0];
+    // reader.onload = (e) => console.log(e.target.result);
+    // reader.onerror = (error) => console.log(error);
+    // reader.readAsText(file);
 });
+
 
 
 // Submit signal
@@ -89,15 +108,8 @@ signalMenu.addEventListener('submit', function (e) {
 signalMenu.addEventListener('change', function (e) {
     e.preventDefault();
     let signalName = document.querySelector('input[name="signalName"]:checked').value;
-    console.log(JSON.stringify({ "signal_name": signalName }));
 
-
-    let divs = plotsSection.getElementsByClassName('plotDiv');
-    for (let div of divs) {
-        div.remove();
-    }
-
-
+    clearDivs()
 
     fetch(signalNameEndpoint, {
         method: 'post',
@@ -108,7 +120,7 @@ signalMenu.addEventListener('change', function (e) {
         body: JSON.stringify({ "signal_name": signalName }),
     })
         .then(res => res.json())
-        .then((data) => console.log(data))
+        .then((data) => { console.log(data) })
         .then(() => {
             animationsExist = false;
             let plotDivs = document.querySelectorAll('.plotDiv');
@@ -143,7 +155,10 @@ function plotAddRemove(value) {
     }
 }
 
-
+document.getElementById("imgSignal-checkbox").checked = true;
+document.getElementById("imgTrip-checkbox").checked = true;
+document.getElementById("animSignal-checkbox").checked = true;
+document.getElementById("animFFT-checkbox").checked = true;
 
 
 

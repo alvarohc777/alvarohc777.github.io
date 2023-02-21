@@ -56,9 +56,10 @@ function removeSignal(value) {
     let divExists = document.getElementById(value.value);
     if (divExists) {
         divExists.parentElement.style.display = 'none';
-    } else {
-        console.log(`${value.value} doesnt exist`)
     }
+    // else {
+    //     console.log(`${value.value} doesnt exist`)
+    // }
 };
 
 function createDiv(value) {
