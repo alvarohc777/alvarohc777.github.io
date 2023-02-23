@@ -1,18 +1,18 @@
 // API endpoints
 
-// For local development
-// const csvEndpoint = "http://127.0.0.1:8080/uploadCSV";
-// const signalNameEndpoint = "http://127.0.0.1:8080/signalName";
-// // const plotsEndpoint = "http://127.0.0.1:8080/plotsList";
-// const plotsEndpoint = "http://127.0.0.1:8080/plots";
-// const sampleCSVEndpoint = "http://127.0.0.1:8080/csvSamples";
-// const sampleCSVSelectEndpoint = "http://127.0.0.1:8080/csvSampleSelect";
+// Backend domain
+const domainName = "https://aherrada.pythonanywhere.com"
 
-const csvEndpoint = "https://aherrada.pythonanywhere.com/uploadCSV";
-const signalNameEndpoint = "https://aherrada.pythonanywhere.com/signalName";
-const plotsEndpoint = "https://aherrada.pythonanywhere.com/plots";
-const sampleCSVEndpoint = "https://aherrada.pythonanywhere.com/csvSamples";
-const sampleCSVSelectEndpoint = "https://aherrada.pythonanywhere.com/csvSampleSelect";
+// For local development
+// const domainName = "http://127.0.0.1:8080"
+
+// Endpoints
+
+const csvEndpoint = `${domainName}/uploadCSV`;
+const signalNameEndpoint = `${domainName}/signalName`;
+const plotsEndpoint = `${domainName}/plots`;
+const sampleCSVEndpoint = `${domainName}/csvSamples`;
+const sampleCSVSelectEndpoint = `${domainName}/csvSampleSelect`;
 
 
 
