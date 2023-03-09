@@ -144,7 +144,7 @@ form {
     background: white;
     height: 60px;
     display: grid;
-    grid-template: 60px / 60px 1fr;
+    grid-template: 60px / 60px 200px 1fr 200px;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -152,7 +152,6 @@ form {
     margin: 0px;
     box-sizing: border-box;
     background-clip: border-box;
-
 }
 
 #navbar .navLinks {
@@ -277,6 +276,15 @@ form {
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
+.container-fluid {
+    padding: 1% 7%;
+}
+
+.social-icon {
+    margin: 20px 10px;
+}
+
 
 
 /* xxx Footer xxx */
