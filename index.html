@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fault Detector</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
     <link rel="icon" href="./static/favicon.ico" type="image/x-icon" />
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Fault Detector" />
+    <meta
+      name="description"
+      content="Web App for visualization of fault detection strategy based on harmonic distortion as part of research project INTEGRA."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alvarohc777.github.io/" />
+    <meta property="og:title" content="Fault Detector" />
+    <meta
+      property="og:description"
+      content="Web App for visualization of fault detection strategy based on harmonic distortion as part of research project INTEGRA."
+    />
+    <meta
+      property="og:image"
+      content="https://alvarohc777.github.io/static/faultDetectorApp.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://alvarohc777.github.io/" />
+    <meta property="twitter:title" content="Fault Detector" />
+    <meta
+      property="twitter:description"
+      content="Web App for visualization of fault detection strategy based on harmonic distortion as part of research project INTEGRA."
+    />
+    <meta
+      property="twitter:image"
+      content="https://alvarohc777.github.io/static/faultDetectorApp.png"
+    />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
     <!-- Font Awsome -->
-    <script src="https://kit.fontawesome.com/aa60282f36.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/aa60282f36.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- <link rel="shortcut icon" href="#"> -->
     <script defer src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
     <script defer src="./scripts/index.js"></script>
@@ -17,144 +55,197 @@
     <script defer src="./scripts/functions.js"></script>
     <script defer src="./scripts/playPause.js"></script>
     <script defer src="./scripts/fetchSampleCSV.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navigation Bar -->
     <section id="navbar">
-        <button id="openbtn" onclick="toogleNav()">x</button>
-        <div></div>
-        <div class="navLinks">
-            <h1>Detector de Fallas</h1>
-        </div>
+      <button id="openbtn" onclick="toogleNav()">x</button>
+      <div></div>
+      <div class="navLinks">
+        <h1>Detector de Fallas</h1>
+      </div>
 
-        <div class="navLinks">
-            <a href="https://www.linkedin.com/in/%C3%A1lvaro-andr%C3%A9s-herrada-coronell-4a6372230/" target="_blank">
-                <i class="social-icon fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/alvarohc777" target="_blank">
-                <i class="social-icon fa-brands fa-github"></i>
-            </a>
-            <a href="mailto:aherrada@uninorte.edu.co" target="_blank">
-                <i class="social-icon fa-solid fa-envelope"></i>
-            </a>
-
-        </div>
+      <div class="navLinks">
+        <a
+          href="https://www.linkedin.com/in/%C3%A1lvaro-andr%C3%A9s-herrada-coronell-4a6372230/"
+          target="_blank"
+        >
+          <i class="social-icon fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/alvarohc777" target="_blank">
+          <i class="social-icon fa-brands fa-github"></i>
+        </a>
+        <a href="mailto:aherrada@uninorte.edu.co" target="_blank">
+          <i class="social-icon fa-solid fa-envelope"></i>
+        </a>
+      </div>
     </section>
     <!--xxx navigation bar xxx-->
 
-
     <!-- App Menu -->
     <section id="menu">
-        <!-- Sidebar Menu -->
-        <div id="sidebar" class="sidebar" data-state="open">
-            <!-- CSV File Upload -->
-            <br>
-            <div class="menuSection">
-                <h3>CSV Loader</h3>
-                <form action="" id="csvForm">
-                    <div>
-                        <label for="csvDropdown">Example Events</label>
-                        <select name="csvDropdown" id="csvDropdown">
-                            <option selected="selected" value="csvFile">
-
-                            </option>
-                        </select>
-                        <br>
-                        <br>
-                    </div>
-                    <label for="">Upload Event</label>
-                    <br>
-                    <input type="file" accept=".csv" name="csvInput" id="csvInput" required style="display:none">
-                    <button for="csvInput" type="button" onclick="selectCSV()">
-                        <p>Select CSV</p>
-                    </button>
-                    <!-- <button type="submit">
+      <!-- Sidebar Menu -->
+      <div id="sidebar" class="sidebar" data-state="open">
+        <!-- CSV File Upload -->
+        <br />
+        <div class="menuSection">
+          <h3>CSV Loader</h3>
+          <form action="" id="csvForm">
+            <div>
+              <label for="csvDropdown">Example Events</label>
+              <select name="csvDropdown" id="csvDropdown">
+                <option selected="selected" value="csvFile"></option>
+              </select>
+              <br />
+              <br />
+            </div>
+            <label for="">Upload Event</label>
+            <br />
+            <input
+              type="file"
+              accept=".csv"
+              name="csvInput"
+              id="csvInput"
+              required
+              style="display: none"
+            />
+            <button for="csvInput" type="button" onclick="selectCSV()">
+              <p>Select CSV</p>
+            </button>
+            <!-- <button type="submit">
                         <p> Load CSV</p>
                     </button> -->
-                    <br>
-                    <br>
-                    <p id="csvNameHolder">No File</p>
-                </form>
-            </div>
-            <br>
-            <!--xxx CSV File Upload xxx-->
-
-            <!-- Signal Selector -->
-            <div class="menuSection" id="signalList">
-                <h3>Signal Selector</h3>
-                <div>
-                    <form action="" id="signalMenu">
-                        <p>Select a CSV</p>
-                    </form>
-                </div>
-            </div>
-            <br>
-            <!--xxx Signal Selector xxx-->
-
-            <!-- Plots List -->
-            <div class="menuSection" id="plotsList">
-                <h3>Plots</h3>
-                <form action="" id="plotsMenu">
-                    <h4>Images</h4>
-                    <input type="checkbox" id="imgSignal-checkbox" class="plotCheckbox" value="imgSignal"
-                        data-name="Signal">
-                    <label for="imgSignal-checkbox">Signal</label><br>
-                    <input type="checkbox" id="imgSISignal-checkbox" class="plotCheckbox" value="imgSISignal"
-                        data-name="Superimposed Signal">
-                    <label for="imgSISignal-checkbox">Superimposed Signal</label><br>
-                    <input type="checkbox" id="imgTrip-checkbox" class="plotCheckbox" value="imgTrip"
-                        data-name="Trip signal">
-                    <label for="imgTrip-checkbox">Trip signal</label><br>
-                    <input type="checkbox" id="imgSITrip-checkbox" class="plotCheckbox" value="imgSITrip"
-                        data-name="Superimposed trip signal">
-                    <label for="imgSITrip-checkbox">Superimposed trip signal</label><br>
-                    <h4>Animations</h4>
-                    <input type="checkbox" id="animSignal-checkbox" class="plotCheckbox" value="animSignal"
-                        data-name="Signal">
-                    <label for="animSignal-checkbox">Signal </label><br>
-                    <input type="checkbox" id="animSISignal-checkbox" class="plotCheckbox" value="animSISignal"
-                        data-name="Superimposed Signal">
-                    <label for="animSISignal-checkbox">Superimposed Signal</label><br>
-                    <input type="checkbox" id="animFFT-checkbox" class="plotCheckbox" value="animFFT"
-                        data-name="Signal FFT">
-                    <label for="animFFT-checkbox">Signal FFT</label><br>
-                    <input type="checkbox" id="animSIFFT-checkbox" class="plotCheckbox" value="animSIFFT"
-                        data-name="Superimposed signal FFT">
-                    <label for="animSIFFT-checkbox">Superimposed signal FFT</label><br>
-                    <button type="submit" style=" display:none;" id="plotsMenuBtn"></button>
-                </form>
-            </div>
-            <!--xxx Plots List xxx-->
-            <!-- slider -->
-            <div class="menuSection" id="slidecontainer">
-                <input type="range" min="0" max="49" value="0" id="slider">
-            </div>
-            <div class="menuSection" id="mediaMenu">
-                <button id="minusSample">&#10094;</button>
-                <button id="play">&#9205;&#9208;</button>
-                <button id="stop">&#9209;</button>
-                <button id="plusSample">&#10095;</button>
-            </div>
-            <br>
-            <div class="menuSection">
-                <div>
-                    <button id="resetAll" onclick="clearAll()">Clear All</button>
-                    <button id="resetPlots" onclick="clearCheckbox()">Clear Plots</button>
-                </div>
-            </div>
-            <!--   &#9199;Play/Pause button -->
-            <!-- xxx slider xxx -->
-
+            <br />
+            <br />
+            <p id="csvNameHolder">No File</p>
+          </form>
         </div>
-        <!--xxx Sidebar Menu xxx-->
+        <br />
+        <!--xxx CSV File Upload xxx-->
+
+        <!-- Signal Selector -->
+        <div class="menuSection" id="signalList">
+          <h3>Signal Selector</h3>
+          <div>
+            <form action="" id="signalMenu">
+              <p>Select a CSV</p>
+            </form>
+          </div>
+        </div>
+        <br />
+        <!--xxx Signal Selector xxx-->
+
+        <!-- Plots List -->
+        <div class="menuSection" id="plotsList">
+          <h3>Plots</h3>
+          <form action="" id="plotsMenu">
+            <h4>Images</h4>
+            <input
+              type="checkbox"
+              id="imgSignal-checkbox"
+              class="plotCheckbox"
+              value="imgSignal"
+              data-name="Signal"
+            />
+            <label for="imgSignal-checkbox">Signal</label><br />
+            <input
+              type="checkbox"
+              id="imgSISignal-checkbox"
+              class="plotCheckbox"
+              value="imgSISignal"
+              data-name="Superimposed Signal"
+            />
+            <label for="imgSISignal-checkbox">Superimposed Signal</label><br />
+            <input
+              type="checkbox"
+              id="imgTrip-checkbox"
+              class="plotCheckbox"
+              value="imgTrip"
+              data-name="Trip signal"
+            />
+            <label for="imgTrip-checkbox">Trip signal</label><br />
+            <input
+              type="checkbox"
+              id="imgSITrip-checkbox"
+              class="plotCheckbox"
+              value="imgSITrip"
+              data-name="Superimposed trip signal"
+            />
+            <label for="imgSITrip-checkbox">Superimposed trip signal</label
+            ><br />
+            <h4>Animations</h4>
+            <input
+              type="checkbox"
+              id="animSignal-checkbox"
+              class="plotCheckbox"
+              value="animSignal"
+              data-name="Signal"
+            />
+            <label for="animSignal-checkbox">Signal </label><br />
+            <input
+              type="checkbox"
+              id="animSISignal-checkbox"
+              class="plotCheckbox"
+              value="animSISignal"
+              data-name="Superimposed Signal"
+            />
+            <label for="animSISignal-checkbox">Superimposed Signal</label><br />
+            <input
+              type="checkbox"
+              id="animFFT-checkbox"
+              class="plotCheckbox"
+              value="animFFT"
+              data-name="Signal FFT"
+            />
+            <label for="animFFT-checkbox">Signal FFT</label><br />
+            <input
+              type="checkbox"
+              id="animSIFFT-checkbox"
+              class="plotCheckbox"
+              value="animSIFFT"
+              data-name="Superimposed signal FFT"
+            />
+            <label for="animSIFFT-checkbox">Superimposed signal FFT</label
+            ><br />
+            <button
+              type="submit"
+              style="display: none"
+              id="plotsMenuBtn"
+            ></button>
+          </form>
+        </div>
+        <!--xxx Plots List xxx-->
+        <!-- slider -->
+        <div class="menuSection" id="slidecontainer">
+          <input type="range" min="0" max="49" value="0" id="slider" />
+        </div>
+        <div class="menuSection" id="mediaMenu">
+          <button id="minusSample">&#10094;</button>
+          <button id="play">&#9205;&#9208;</button>
+          <button id="stop">&#9209;</button>
+          <button id="plusSample">&#10095;</button>
+        </div>
+        <br />
+        <div class="menuSection">
+          <div>
+            <button id="resetAll" onclick="clearAll()">Clear All</button>
+            <button id="resetPlots" onclick="clearCheckbox()">
+              Clear Plots
+            </button>
+          </div>
+        </div>
+        <!--   &#9199;Play/Pause button -->
+        <!-- xxx slider xxx -->
+      </div>
+      <!--xxx Sidebar Menu xxx-->
     </section>
     <!--xxx App Menu xxx-->
 
     <!-- Main Content Section (plots) -->
     <section id="mainContent">
-        <section id="plots">
-            <!-- <div class="plotDiv">
+      <section id="plots">
+        <!-- <div class="plotDiv">
                 <h3>Signal 1</h3>
                 <img id="signal1" src="./static/sample_image.png" alt="image_sample" height="300px" width="400px">
             </div>
@@ -162,43 +253,38 @@
                 <h3>Signal</h3>
                 <div id="signal" style="width: 400px;height:300px;background:black"></div>
             </div> -->
-
-        </section>
+      </section>
     </section>
     <!--xxx Main Content Section (plots) xxx-->
 
-
     <!-- Footer -->
     <section id="footer">
-        <a href="https://www.utp.edu.co/" target="_blank">
-            <h4>UTP</h4>
-        </a>
-        <a href="">
-            <h4>Integra</h4>
-        </a>
-        <a href="https://www.uninorte.edu.co/web/gisel#:~:text=El%20grupo%20de%20sistemas%20el%C3%A9ctricos,mediante%20la%20globalizaci%C3%B3n%20del%20conocimiento."
-            target="_blank">
-            <h4>GISEL</h4>
-        </a>
-        <a href="https://www.uninorte.edu.co/" target="_blank">
-            <h4>Uninorte</h4>
-        </a>
-        <div class="break"></div>
-        <div class="logos-div">
-            <!-- <img src="./static/UN_logo.jpg" alt="Universidad del Norte Logo" height="50px" width="50px">
+      <a href="https://www.utp.edu.co/" target="_blank">
+        <h4>UTP</h4>
+      </a>
+      <a href="">
+        <h4>Integra</h4>
+      </a>
+      <a
+        href="https://www.uninorte.edu.co/web/gisel#:~:text=El%20grupo%20de%20sistemas%20el%C3%A9ctricos,mediante%20la%20globalizaci%C3%B3n%20del%20conocimiento."
+        target="_blank"
+      >
+        <h4>GISEL</h4>
+      </a>
+      <a href="https://www.uninorte.edu.co/" target="_blank">
+        <h4>Uninorte</h4>
+      </a>
+      <div class="break"></div>
+      <div class="logos-div">
+        <!-- <img src="./static/UN_logo.jpg" alt="Universidad del Norte Logo" height="50px" width="50px">
             <img src="./static/GISEL_logo.jpg" alt="GISEL Uninorte Logo" height="50px" width="50px">
             <img src="./static/UTP_shield.png" alt="UTP Logo" height="50px" width="50px"> -->
-            <img src="./static/UN_logo.jpg" alt="Universidad del Norte Logo">
-            <img src="./static/GISEL_logo.jpg" alt="GISEL Uninorte Logo">
-            <img src="./static/UTP_shield.png" alt="UTP Logo">
-        </div>
+        <img src="./static/UN_logo.jpg" alt="Universidad del Norte Logo" />
+        <img src="./static/GISEL_logo.jpg" alt="GISEL Uninorte Logo" />
+        <img src="./static/UTP_shield.png" alt="UTP Logo" />
+      </div>
 
-        <div class="break"></div>
-
-
+      <div class="break"></div>
     </section>
-
-
-</body>
-
+  </body>
 </html>
